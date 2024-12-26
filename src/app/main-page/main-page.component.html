@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<section class="bg-slate-100">
+  <div class="flex flex-col items-center justify-center px-6 py-8 h-screen">
+    <div
+      class="flex flex-col items-center w-full bg-white rounded-xl drop-shadow-xl sm:max-w-md xl:p-5"
+    >
+      <h1 class="text-gray-600 font-bold mb-3 text-xl pt-4">
+        Sign in to your account
+      </h1>
+
+      <form class="space-y-6 p-10" [formGroup]="loginForm">
+        <div>
+          <label
+            for="mobile"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Mobile number
+            <!-- [(ngModel)]="userObj.mobile" -->
+            <input
+              type="text"
+              name="mobile"
+              id="mobile"
+              placeholder="Mobile number"
+              formControlName="mobile"
+              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:border-blue-500"
+            />
+            @if(loginForm.controls['mobile'].errors?.['required'] &&
+            loginForm.controls['mobile'].touched ){
+            <span class="text-red-600">This is required</span>
+            }
+          </label>
+        </div>
+        <div>
+          <label
+            for="password"
+            class="block mb-2 text-sm font-medium text-gray-900"
+            >Password
+            <!-- [(ngModel)]="userObj.password" -->
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              formControlName="password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:border-blue-500"
+            />
+            @if(loginForm.controls['password'].errors?.['required'] &&
+            loginForm.controls['password'].touched ){
+            <span class="text-red-600">This is required</span>
+            }
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="p-3 rounded-xl font-semibold bg-baby-blue text-white shadow-md w-full text-xl hover:opacity-90"
+          (click)="onLogin()"
+        >
+          Sign In
+        </button>
+        <p>
+          Don't have an account yet?
+          <button
+            class="text-lg font-semibold text-blue-500 ml-3 hover:underline underline-offset-2 decoration-2"
+            routerLink="/signup"
+          >
+            Sign Up
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

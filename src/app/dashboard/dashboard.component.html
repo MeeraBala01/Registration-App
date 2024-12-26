@@ -1,0 +1,82 @@
+<app-header label="DASHBOARD"></app-header>
+<section class="bg-slate-100">
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 w-full h-screen"
+  >
+    <div class="bg-white shadow-md p-5 rounded-xl w-1/2">
+      <div class="p-9 flex flex-col leading-9" *ngIf="currentUser">
+        <div class="flex flex-row justify-between">
+          <h2 class="text-baby-blue font-semibold text-3xl">Contact Card</h2>
+          <button
+            class="text-white font-bold rounded-full px-3 py-1 w-1/4 bg-red-600 shadow-md hover:opacity-80"
+            (click)="deleteAccount(currentUser.mobile)"
+          >
+            Delete
+          </button>
+        </div>
+
+        <!-- Table for Data Display -->
+        <div class="mt-5">
+          <table class="table-auto w-full b">
+            <tbody>
+              <tr>
+                <td class="">Name</td>
+                <td class="">: {{ currentUser.name }}</td>
+              </tr>
+              <tr>
+                <td class="">Mobile Number</td>
+                <td class="">:{{ currentUser.mobile }}</td>
+              </tr>
+              <tr>
+                <td class="">Email</td>
+                <td class="">: {{ currentUser.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Logout Button -->
+        <button
+          class="bg-baby-blue rounded-xl p-3 shadow-md text-white hover:opacity-90 mt-3"
+          (click)="clear()"
+          routerLink="/logout"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <app-header label="DASHBOARD"></app-header>
+<section class="bg-slate-100">
+  <div
+    class="flex flex-col items-center justify-center px-6 py-8 w-full h-screen"
+  >
+    <div class="bg-white shadow-md p-5 rounded-xl w-1/2">
+      <div class="p-9 flex flex-col leading-9" *ngIf="currentUser">
+        <div class="flex flex-row justify-between">
+          <h2 class="text-baby-blue font-semibold text-3xl">Contact Card</h2>
+          <button
+            class="text-white font-bold rounded-full px-3 py-1 w-1/4 bg-red-600 shadow-md hover:opacity-80"
+            (click)="deleteAccount(currentUser.mobile)"
+          >
+            x
+          </button>
+        </div>
+
+        <p>Name: {{ currentUser.name }}</p>
+        <p>Mobile Number: {{ currentUser.mobile }}</p>
+        <p>Email-Id: {{ currentUser.email }}</p>
+
+        <button
+          class="bg-baby-blue rounded-xl p-3 shadow-md text-white hover:opacity-90 mt-3"
+          (click)="clear()"
+          routerLink="/logout"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+</section> -->
